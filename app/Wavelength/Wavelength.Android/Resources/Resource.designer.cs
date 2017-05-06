@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("Wavelength.Droid.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("wavelength.Droid.Resource", IsApplication=true)]
 
-namespace Wavelength.Droid
+namespace wavelength.Droid
 {
 	
 	

@@ -7,9 +7,9 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
-namespace Wavelength.Droid
+namespace wavelength.Droid
 {
-	[Activity (Label = "Wavelength.Android", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity (Label = "wavelength.Android", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
 		int count = 1;

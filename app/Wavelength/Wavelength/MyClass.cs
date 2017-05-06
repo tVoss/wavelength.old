@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace Wavelength
+namespace wavelength
 {
-	public class MyClass
-	{
-		public MyClass ()
-		{
-		}
-	}
+    public class MyClass
+    {
+        public MyClass()
+        {
+        }
+    }
 }
 
