@@ -7,7 +7,7 @@ using Foundation;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace Wavelength.iOS
+namespace wavelength.iOS
 {
 	[Register ("ViewController")]
 	partial class ViewController

@@ -12,10 +12,11 @@ using Java.Lang;
 using Xamarin.Facebook.Login;
 using Android.Util;
 
-namespace Wavelength.Droid
+namespace wavelength.Droid
 {
 	[Activity (Label = "Wavelength.Android", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity, IFacebookCallback
+
 	{
 
         ICallbackManager callbackManager;

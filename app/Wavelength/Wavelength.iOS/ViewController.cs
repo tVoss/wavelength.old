@@ -2,7 +2,7 @@
 
 using UIKit;
 
-namespace Wavelength.iOS
+namespace wavelength.iOS
 {
 	public partial class ViewController : UIViewController
 	{

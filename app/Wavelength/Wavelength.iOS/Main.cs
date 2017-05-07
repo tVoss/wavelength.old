@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace Wavelength.iOS
+namespace wavelength.iOS
 {
 	public class Application
 	{
