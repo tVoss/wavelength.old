@@ -6,30 +6,55 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Xamarin.Facebook.Login.Widget;
+using Xamarin.Facebook;
+using Java.Lang;
+using Xamarin.Facebook.Login;
+using Android.Util;
 
 namespace Wavelength.Droid
 {
 	[Activity (Label = "Wavelength.Android", MainLauncher = true, Icon = "@drawable/icon")]
-	public class MainActivity : Activity
+	public class MainActivity : Activity, IFacebookCallback
 	{
-		int count = 1;
 
-		protected override void OnCreate (Bundle bundle)
+        ICallbackManager callbackManager;
+
+        protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
-			// Set our view from the "main" layout resource
-			SetContentView (Resource.Layout.Main);
-
-			// Get our button from the layout resource,
-			// and attach an event to it
-			Button button = FindViewById<Button> (Resource.Id.myButton);
-			
-			button.Click += delegate {
-				button.Text = string.Format ("{0} clicks!", count++);
-			};
+            // Set up facebook
+            FacebookSdk.SdkInitialize(Application.Context);
+            callbackManager = CallbackManagerFactory.Create();
+            LoginManager.Instance.RegisterCallback(callbackManager, this);
+            
+            SetContentView (Resource.Layout.Main);
+            
 		}
-	}
+
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            callbackManager.OnActivityResult(requestCode, (int)resultCode, data);
+        }
+
+        public void OnCancel()
+        {
+            Log.Info("WAVE", "Login Cancelled!");
+        }
+
+        public void OnError(FacebookException error)
+        {
+            Log.Info("WAVE", "Login Error!");
+        }
+
+        public void OnSuccess(Java.Lang.Object result)
+        {
+            var loginResult = result as LoginResult;
+            Log.Info("WAVE", "Login Success!");
+        }
+    }
 }
 
 
