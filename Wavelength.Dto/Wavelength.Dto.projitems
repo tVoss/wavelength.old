@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>e2db4aca-bc85-4b3d-8a49-895b3f380649</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Wavelength.Dto</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)BarReportDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProfileDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Request\NewProfileRequest.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  wavelength.api:
+    image: wavelength.api
+    build:
+      context: ./Wavelength.Api
+      dockerfile: Dockerfile
