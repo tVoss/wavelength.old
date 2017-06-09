@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="hello">Hello World, Click Me!</string>
+  <string name="app_name">Wavelength.Android</string>
+
+  <string name="facebook_app_id">1512133818818700</string>
+  <string name="fb_login_protocol_scheme">fbAPP_ID</string>
+</resources>
