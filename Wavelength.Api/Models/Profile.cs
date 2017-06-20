@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Wavelength.Dto;
 
 namespace Wavelength.Api.Models
 {
@@ -15,5 +16,31 @@ namespace Wavelength.Api.Models
         public bool IsTender { get; set; }
         public virtual Bar FavoriteBar { get; set; }
         public virtual List<Shift> Shifts { get; set; }
+    }
+
+    public static class ProfileExtensions
+    {
+        public static ProfileDto ToProfileDto(this Profile profile)
+        {
+            return new ProfileDto
+            {
+                Name = "asdf",
+                Bio = profile.Bio,
+                PhotoUrl = "asdf",
+                FavoriteBarId = profile.FavoriteBar.Id
+            };
+        }
+
+        public static TenderDto ToTenderDto(this Profile profile)
+        {
+            return new TenderDto
+            {
+                Name = "asdf",
+                Bio = profile.Bio,
+                PhotoUrl = "asdf",
+                FavoriteBarId = profile.FavoriteBar.Id,
+                
+            };
+        }
     }
 }

@@ -13,6 +13,8 @@ namespace Wavelength.Api.Controllers
     public class BarsController : WavelengthController
     {
 
+        #region Reports
+
         [HttpGet]
         [Route("{id}/report")]
         public async Task<IActionResult> GetReport(int id)
@@ -71,5 +73,21 @@ namespace Wavelength.Api.Controllers
 
             return Ok();
         }
+
+        #endregion
+
+        #region Tenders
+
+        [HttpGet]
+        [Route("{id}/tenders")]
+        public async Task<IActionResult> GetTenders(int id)
+        {
+            // All shifts at the bar after right now
+            var tenders = await DbContext.Shifts.Where(s => s.Bar.Id == id && s.Start > DateTime.Now).Take(50).ToArrayAsync();
+            
+        }
+
+        #endregion
+
     }
 }

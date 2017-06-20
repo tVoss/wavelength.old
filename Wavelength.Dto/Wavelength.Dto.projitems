@@ -12,5 +12,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)BarReportDto.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProfileDto.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Request\NewProfileRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TenderDto.cs" />
   </ItemGroup>
 </Project>
