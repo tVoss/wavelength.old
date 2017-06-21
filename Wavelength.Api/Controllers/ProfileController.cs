@@ -50,6 +50,10 @@ namespace Wavelength.Api.Controllers
         }
 
         [HttpGet]
+        [Route("tenders/{id}")]
+        public async
+
+        [HttpGet]
         [Route("friends/{id}")]
         public async Task<IActionResult> GetFriend(Guid id)
         {
@@ -58,8 +62,9 @@ namespace Wavelength.Api.Controllers
             {
                 return NotFound();
             }
-            
-            if (!await FacebookApi.UsersAreFriends(null, friend.FacebookId, null))
+
+            var friends = await FacebookApi.GetUserFriends(null);
+            if (!friends.Contains(friend.FacebookId))
             {
                 return Forbid();
             }
