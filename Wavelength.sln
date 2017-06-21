@@ -15,7 +15,7 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Wavelength.Dto", "Wavelength.Dto\Wavelength.Dto.shproj", "{E2DB4ACA-BC85-4B3D-8A49-895B3F380649}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wavelength.Api.Tests", "..\Wavelength.Api.Tests\Wavelength.Api.Tests.csproj", "{C8A67177-0247-4257-952B-028DC5493328}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wavelength.Api.Tests", "Wavelength.Api.Tests\Wavelength.Api.Tests.csproj", "{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -114,24 +114,24 @@ Global
 		{6233241F-AD61-40B6-97CC-6C6C5AE8B856}.Release|iPhone.Build.0 = Release|Any CPU
 		{6233241F-AD61-40B6-97CC-6C6C5AE8B856}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{6233241F-AD61-40B6-97CC-6C6C5AE8B856}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{C8A67177-0247-4257-952B-028DC5493328}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8A67177-0247-4257-952B-028DC5493328}.AppStore|Any CPU.Build.0 = Debug|Any CPU
-		{C8A67177-0247-4257-952B-028DC5493328}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
-		{C8A67177-0247-4257-952B-028DC5493328}.AppStore|iPhone.Build.0 = Debug|Any CPU
-		{C8A67177-0247-4257-952B-028DC5493328}.AppStore|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{C8A67177-0247-4257-952B-028DC5493328}.AppStore|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{C8A67177-0247-4257-952B-028DC5493328}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8A67177-0247-4257-952B-028DC5493328}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8A67177-0247-4257-952B-028DC5493328}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{C8A67177-0247-4257-952B-028DC5493328}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{C8A67177-0247-4257-952B-028DC5493328}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{C8A67177-0247-4257-952B-028DC5493328}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{C8A67177-0247-4257-952B-028DC5493328}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8A67177-0247-4257-952B-028DC5493328}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C8A67177-0247-4257-952B-028DC5493328}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{C8A67177-0247-4257-952B-028DC5493328}.Release|iPhone.Build.0 = Release|Any CPU
-		{C8A67177-0247-4257-952B-028DC5493328}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{C8A67177-0247-4257-952B-028DC5493328}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}.AppStore|Any CPU.Build.0 = Debug|Any CPU
+		{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
+		{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}.AppStore|iPhone.Build.0 = Debug|Any CPU
+		{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}.AppStore|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}.AppStore|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}.Release|iPhone.Build.0 = Release|Any CPU
+		{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{2E3EE367-9EEF-4726-BA0F-6E373E5E0FC8}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
