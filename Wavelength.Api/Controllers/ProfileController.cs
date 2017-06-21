@@ -26,6 +26,47 @@ namespace Wavelength.Api.Controllers
             return profile == null ? (IActionResult)NotFound() : Ok(profile);
         }
 
+        [HttpGet]
+        [Route("friends")]
+        public async Task<IActionResult> GetFriends()
+        {
+            string facebookId = null;
+            var friends = await FacebookApi.GetUserFriends(null);
+
+            var profiles = await DbContext.Profiles.Where(p => friends.Contains(p.FacebookId)).ToArrayAsync();
+
+            return Ok(profiles.Select(p => p.ToProfileDto()));
+        }
+
+        [HttpGet]
+        [Route("tenders")]
+        public async Task<IActionResult> GetTenders()
+        {
+            var friends = await FacebookApi.GetUserFriends(null);
+
+            var tenders = await DbContext.Profiles.Where(p => p.IsTender && friends.Contains(p.FacebookId)).ToArrayAsync();
+
+            return Ok(tenders.Select(p => p.ToProfileDto()));
+        }
+
+        [HttpGet]
+        [Route("friends/{id}")]
+        public async Task<IActionResult> GetFriend(Guid id)
+        {
+            var friend = await DbContext.Profiles.FindAsync(id);
+            if (friend == null)
+            {
+                return NotFound();
+            }
+            
+            if (!await FacebookApi.UsersAreFriends(null, friend.FacebookId, null))
+            {
+                return Forbid();
+            }
+
+            return Ok(friend.ToProfileDto());
+        }
+
         [HttpPost]
         [Route("")]
         public async Task<IActionResult> CreateProfile([FromBody] NewProfileRequest dto)

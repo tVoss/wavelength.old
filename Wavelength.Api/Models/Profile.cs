@@ -30,17 +30,5 @@ namespace Wavelength.Api.Models
                 FavoriteBarId = profile.FavoriteBar.Id
             };
         }
-
-        public static TenderDto ToTenderDto(this Profile profile)
-        {
-            return new TenderDto
-            {
-                Name = "asdf",
-                Bio = profile.Bio,
-                PhotoUrl = "asdf",
-                FavoriteBarId = profile.FavoriteBar.Id,
-                
-            };
-        }
     }
 }

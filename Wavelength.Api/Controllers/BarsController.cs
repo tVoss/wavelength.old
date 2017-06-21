@@ -13,39 +13,40 @@ namespace Wavelength.Api.Controllers
     public class BarsController : WavelengthController
     {
 
+        [HttpGet]
+        [Route("")]
+        public async Task<IActionResult> GetBars()
+        {
+            var bars = await DbContext.Bars.ToListAsync();
+
+            return Ok(bars.Select(b => b.ToDto()));
+        }
+        
+
         #region Reports
+
+        [HttpGet]
+        [Route("reports")]
+        public async Task<IActionResult> GetReports()
+        {
+            var bars = await DbContext.Bars.ToListAsync();
+
+            var reportStart = DateTime.UtcNow - TimeSpan.FromHours(2);
+            return Ok(bars.Select(b => b.ReportSince(reportStart).ToDto());
+        }
 
         [HttpGet]
         [Route("{id}/report")]
         public async Task<IActionResult> GetReport(int id)
         {
-            if (await DbContext.Bars.FindAsync(id) == null)
+            Bar bar;
+            if ((bar = await DbContext.Bars.FindAsync(id)) == null)
             {
                 return NotFound();
             }
 
             var reportStart = DateTime.UtcNow - TimeSpan.FromHours(2);
-            var reports = await DbContext.BarReports.Where(r => r.Bar.Id == id && r.ReportedOn > reportStart).ToListAsync();
-
-            var cover = reports
-                .Select(r => r.Cover)
-                .Where(c => c != null)
-                .GroupBy(c => c)
-                .OrderByDescending(g => g.Count())
-                .First()
-                .Key.Value;
-
-            var line = reports.Select(r => r.Line).Where(l => l != null).Sum().Value / reports.Where(r => r.Line != null).Count();
-            var capacity = reports.Select(r => r.Capacity).Where(c => c != null).Sum().Value / reports.Where(r => r.Capacity != null).Count();
-
-            var report = new BarReportDto
-            {
-                Cover = cover,
-                Line = line,
-                Capacity = capacity
-            };
-
-            return Ok(report);
+            return Ok(bar.ReportSince(reportStart).ToDto());
         }
 
         [HttpPost]
@@ -82,9 +83,28 @@ namespace Wavelength.Api.Controllers
         [Route("{id}/tenders")]
         public async Task<IActionResult> GetTenders(int id)
         {
-            // All shifts at the bar after right now
-            var tenders = await DbContext.Shifts.Where(s => s.Bar.Id == id && s.Start > DateTime.Now).Take(50).ToArrayAsync();
-            
+            if (await DbContext.Bars.FindAsync(id) == null)
+            {
+                return NotFound();
+            }
+
+            // Start time is right now
+            var start = DateTime.UtcNow;
+            // If it's between 12am and 2am, add 2 hours to the date, otherwise 26 (1 day + 2 hours)
+            var end = start.Date + TimeSpan.FromHours(start.TimeOfDay.Hours < 2 ? 2 : 26);
+
+            var shifts = await DbContext.Shifts.Where(s => s.Bar.Id == id && s.Start < end && s.End > start).ToArrayAsync();
+
+            var dtos = new List<ShiftDto>();
+            foreach (var shift in shifts)
+            {
+                if (await FacebookApi.UsersAreFriends(shift.Profile.FacebookId, null, null))
+                {
+                    dtos.Add(shift.ToDto());
+                }
+            }
+
+            return Ok(dtos);
         }
 
         #endregion

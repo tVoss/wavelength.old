@@ -9,9 +9,11 @@
     <Import_RootNamespace>Wavelength.Dto</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)BarDto.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BarReportDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DealDto.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProfileDto.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Request\NewProfileRequest.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TenderDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ShiftDto.cs" />
   </ItemGroup>
 </Project>

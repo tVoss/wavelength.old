@@ -9,10 +9,13 @@ namespace Wavelength.Api.Controllers
     public class WavelengthController : ControllerBase, IDisposable
     {
 
+        protected readonly FacebookApi FacebookApi;
         protected readonly WavelengthDbContext DbContext;
+        
 
         public WavelengthController()
         {
+            FacebookApi = new FacebookApi();
             DbContext = new WavelengthDbContext();
         }
 

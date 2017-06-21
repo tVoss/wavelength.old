@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wavelength.App.Droid", "Wavelength.App\Wavelength.App.Droid\Wavelength.App.Droid.csproj", "{87599EBC-3372-43F1-9B50-1C0CB3B6AE4D}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Wavelength.App\Wavelength.App\Wavelength.App.projitems*{ac69cdc8-f8ce-4878-b7c4-d053caf9a568}*SharedItemsImports = 13
+		Wavelength.App\Wavelength.App\Wavelength.App.projitems*{87599ebc-3372-43f1-9b50-1c0cb3b6ae4d}*SharedItemsImports = 4
+		Wavelength.App\Wavelength.App\Wavelength.App.projitems*{e6cdaa76-e663-47fb-923f-b69a3a3e515d}*SharedItemsImports = 4
 		Wavelength.Dto\Wavelength.Dto.projitems*{e2db4aca-bc85-4b3d-8a49-895b3f380649}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

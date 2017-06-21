@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Wavelength.Dto;
 
 namespace Wavelength.Api.Models
 {
@@ -16,5 +17,18 @@ namespace Wavelength.Api.Models
         public int? Cover { get; set; }
         public float? Line { get; set; }
         public float? Capacity { get; set; }
+    }
+
+    public static class BarReportExtensions
+    {
+        public static BarReportDto ToDto(this BarReport report)
+        {
+            return new BarReportDto
+            {
+                Cover = report.Cover,
+                Line = report.Line,
+                Capacity = report.Capacity
+            };
+        }
     }
 }
