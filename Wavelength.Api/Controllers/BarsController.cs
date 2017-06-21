@@ -12,6 +12,9 @@ namespace Wavelength.Api.Controllers
     [Route("api/bars")]
     public class BarsController : WavelengthController
     {
+        public BarsController(WavelengthDbContext context, FacebookApi api) : base(context, api)
+        {
+        }
 
         [HttpGet]
         [Route("")]
@@ -32,7 +35,7 @@ namespace Wavelength.Api.Controllers
             var bars = await DbContext.Bars.ToListAsync();
 
             var reportStart = DateTime.UtcNow - TimeSpan.FromHours(2);
-            return Ok(bars.Select(b => b.ReportSince(reportStart).ToDto());
+            return Ok(bars.Select(b => b.ReportSince(reportStart).ToDto()));
         }
 
         [HttpGet]
@@ -92,19 +95,16 @@ namespace Wavelength.Api.Controllers
             var start = DateTime.UtcNow;
             // If it's between 12am and 2am, add 2 hours to the date, otherwise 26 (1 day + 2 hours)
             var end = start.Date + TimeSpan.FromHours(start.TimeOfDay.Hours < 2 ? 2 : 26);
+            var friends = await FacebookApi.GetUserFriends(User.Claims.Single(c => c.Type == "token").Value);
 
-            var shifts = await DbContext.Shifts.Where(s => s.Bar.Id == id && s.Start < end && s.End > start).ToArrayAsync();
+            var shifts = await DbContext.Shifts.Where(s =>
+                s.Bar.Id == id && 
+                s.Start < end &&
+                s.End > start &&
+                friends.Contains(s.Profile.FacebookId))
+                .ToArrayAsync();
 
-            var dtos = new List<ShiftDto>();
-            foreach (var shift in shifts)
-            {
-                if (await FacebookApi.UsersAreFriends(shift.Profile.FacebookId, null, null))
-                {
-                    dtos.Add(shift.ToDto());
-                }
-            }
-
-            return Ok(dtos);
+            return Ok(shifts.Select(s => s.ToDto()));
         }
 
         #endregion

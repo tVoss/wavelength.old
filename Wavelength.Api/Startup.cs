@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 
 namespace Wavelength.Api
 {
@@ -23,7 +24,12 @@ namespace Wavelength.Api
             Configuration = new ConfigurationBuilder()
                 .AddEnvironmentVariables()
                 .Build();
-            
+
+            services.AddDbContext<WavelengthDbContext>(opts => opts.UseSqlServer("asdf"));
+            services.AddSingleton<FacebookApi>();
+
+            var test = new WavelengthDbContext(null);
+
             services.AddMvcCore();
         }
 
@@ -38,6 +44,7 @@ namespace Wavelength.Api
             }
 
             app.UseMiddleware<WavelengthAuthenticationMiddleware>();
+            app.UseMvc();
 
             app.Run(async (context) =>
             {

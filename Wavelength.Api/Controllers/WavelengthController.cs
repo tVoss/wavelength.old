@@ -6,22 +6,15 @@ using System.Threading.Tasks;
 
 namespace Wavelength.Api.Controllers
 {
-    public class WavelengthController : ControllerBase, IDisposable
+    public class WavelengthController : ControllerBase
     {
-
         protected readonly FacebookApi FacebookApi;
-        protected readonly WavelengthDbContext DbContext;
-        
+        protected readonly WavelengthDbContext DbContext;   
 
-        public WavelengthController()
+        public WavelengthController(WavelengthDbContext context, FacebookApi api)
         {
-            FacebookApi = new FacebookApi();
-            DbContext = new WavelengthDbContext();
-        }
-
-        public void Dispose()
-        {
-            DbContext.Dispose();
+            FacebookApi = api;
+            DbContext = context;
         }
     }
 }

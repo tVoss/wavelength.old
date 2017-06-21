@@ -22,20 +22,33 @@ namespace Wavelength.Api
 
     public class WavelengthAuthenticationMiddleware : AuthenticationMiddleware<WavelengthAuthenticationOptions>
     {
+        private FacebookApi _facebookApi;
 
-        public WavelengthAuthenticationMiddleware(RequestDelegate next, IOptions<WavelengthAuthenticationOptions> options, ILoggerFactory loggerFactory, UrlEncoder encoder) : base(next, options, loggerFactory, encoder)
+        public WavelengthAuthenticationMiddleware(
+            RequestDelegate next, 
+            IOptions<WavelengthAuthenticationOptions> options, 
+            ILoggerFactory loggerFactory, 
+            UrlEncoder encoder,
+            FacebookApi facebookApi) 
+            : base(next, options, loggerFactory, encoder)
         {
+            _facebookApi = facebookApi;
         }
 
         protected override AuthenticationHandler<WavelengthAuthenticationOptions> CreateHandler()
         {
-            return new WavelengthAuthenticationaHandler();
+            return new WavelengthAuthenticationaHandler(_facebookApi);
         }
     }
 
     public class WavelengthAuthenticationaHandler : AuthenticationHandler<WavelengthAuthenticationOptions>
     {
-        private FacebookApi _facebookApi = new FacebookApi();
+        private FacebookApi _facebookApi;
+
+        public WavelengthAuthenticationaHandler(FacebookApi facebookApi)
+        {
+            _facebookApi = facebookApi;
+        }
 
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {

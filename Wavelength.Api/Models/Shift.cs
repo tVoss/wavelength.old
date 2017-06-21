@@ -27,7 +27,7 @@ namespace Wavelength.Api.Models
                 Start = shift.Start,
                 End = shift.End,
                 Profile = shift.Profile.ToProfileDto()
-            }
+            };
         }
     }
 }

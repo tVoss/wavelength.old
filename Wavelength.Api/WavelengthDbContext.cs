@@ -10,6 +10,10 @@ namespace Wavelength.Api
     public class WavelengthDbContext : DbContext
     {
 
+        public WavelengthDbContext(DbContextOptions options) : base(options)
+        {
+        }
+
         public DbSet<Bar> Bars { get; set; }
         public DbSet<BarReport> BarReports { get; set; }
         public DbSet<Deal> Deals { get; set; }

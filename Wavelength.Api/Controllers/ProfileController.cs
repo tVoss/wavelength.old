@@ -14,6 +14,9 @@ namespace Wavelength.Api.Controllers
     [Route("api/profile")]
     public class ProfileController : WavelengthController
     {
+        public ProfileController(WavelengthDbContext context, FacebookApi api) : base(context, api)
+        {
+        }
 
         [HttpGet]
         [Route("")]
@@ -51,7 +54,10 @@ namespace Wavelength.Api.Controllers
 
         [HttpGet]
         [Route("tenders/{id}")]
-        public async
+        public async Task<IActionResult> GetTender(Guid id)
+        {
+            return null;
+        }
 
         [HttpGet]
         [Route("friends/{id}")]
