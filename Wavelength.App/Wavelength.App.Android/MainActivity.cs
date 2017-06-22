@@ -1,54 +1,46 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-using Xamarin.Facebook;
-using Xamarin.Facebook.Login;
-using Java.Lang;
-using Android.Util;
-
 namespace Wavelength.App.Droid
 {
-	[Activity (Label = "Wavelength.App.Android", MainLauncher = true, Icon = "@drawable/icon")]
-	public class MainActivity : Activity, IFacebookCallback
+    [Activity (Label = "Wavelength.App.Android", MainLauncher = true, Icon = "@drawable/icon")]
+	public class MainActivity : Activity, View.IOnClickListener
 	{
 
-        private ICallbackManager callbackManager;
+        private Button button;
 
         protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
 
-            FacebookSdk.SdkInitialize(Application.Context);
-            callbackManager = CallbackManagerFactory.Create();
-            LoginManager.Instance.RegisterCallback(callbackManager, this);
+            // Check to see if user has logged in
+            var prefs = GetSharedPreferences(GetString(Resource.String.app_prefs), FileCreationMode.Private);
+            if (!prefs.Contains(GetString(Resource.String.pref_access_token)))
+            {
+                StartActivity(typeof(LoginActivity));
+                Finish();
+                return;
+            }
 
-			SetContentView(Resource.Layout.Login);
+			SetContentView(Resource.Layout.Main);
+
+            button = FindViewById<Button>(Resource.Id.myButton);
+            button.SetOnClickListener(this);
 		}
 
-        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
+        public void OnClick(View v)
         {
-            base.OnActivityResult(requestCode, resultCode, data);
-            callbackManager.OnActivityResult(requestCode, (int)resultCode, data);
-        }
+            var prefs = GetSharedPreferences(GetString(Resource.String.app_prefs), FileCreationMode.Private);
+            var edit = prefs.Edit();
 
-        public void OnCancel()
-        {
-            Log.Info("FB", "Cancelled");
-        }
+            edit.Clear();
+            edit.Apply();
 
-        public void OnError(FacebookException error)
-        {
-            Log.Info("FB", "Error");
-        }
-
-        public void OnSuccess(Java.Lang.Object result)
-        {
-            Log.Info("FB", "Success");
+            StartActivity(typeof(LoginActivity));
+            Finish();
         }
     }
 }

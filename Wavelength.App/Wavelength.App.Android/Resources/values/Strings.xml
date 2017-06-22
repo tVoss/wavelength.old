@@ -2,6 +2,10 @@
 <resources>
 	<string name="hello">Hello World, Click Me!</string>
 	<string name="app_name">Wavelength.App.Android</string>
+
+  <string name="app_prefs">WAVELENGTH_PREFS</string>
+  <string name="pref_access_token">PREF_ACCESS_TOKEN</string>
+  
   <string name="facebook_app_id">1512133818818700</string>
   <string name="fb_login_protocol_scheme">fbAPP_ID</string>
 </resources>

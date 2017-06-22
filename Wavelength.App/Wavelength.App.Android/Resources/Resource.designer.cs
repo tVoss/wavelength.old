@@ -445,6 +445,9 @@ namespace Wavelength.App.Droid
 			// aapt resource value: 0x7f040012
 			public const int app_name = 2130968594;
 			
+			// aapt resource value: 0x7f040013
+			public const int app_prefs = 2130968595;
+			
 			// aapt resource value: 0x7f040000
 			public const int com_facebook_image_download_unknown_error = 2130968576;
 			
@@ -493,17 +496,20 @@ namespace Wavelength.App.Droid
 			// aapt resource value: 0x7f04000f
 			public const int com_facebook_tooltip_default = 2130968591;
 			
-			// aapt resource value: 0x7f040013
-			public const int facebook_app_id = 2130968595;
+			// aapt resource value: 0x7f040015
+			public const int facebook_app_id = 2130968597;
 			
-			// aapt resource value: 0x7f040014
-			public const int fb_login_protocol_scheme = 2130968596;
+			// aapt resource value: 0x7f040016
+			public const int fb_login_protocol_scheme = 2130968598;
 			
 			// aapt resource value: 0x7f040011
 			public const int hello = 2130968593;
 			
 			// aapt resource value: 0x7f040010
 			public const int messenger_send_button_text = 2130968592;
+			
+			// aapt resource value: 0x7f040014
+			public const int pref_access_token = 2130968596;
 			
 			static String()
 			{
