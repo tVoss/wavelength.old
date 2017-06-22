@@ -350,8 +350,11 @@ namespace Wavelength.App.Droid
 			// aapt resource value: 0x7f080019
 			public const int login_button = 2131230745;
 			
+			// aapt resource value: 0x7f08001b
+			public const int messenger_send_button = 2131230747;
+			
 			// aapt resource value: 0x7f08001a
-			public const int messenger_send_button = 2131230746;
+			public const int myButton = 2131230746;
 			
 			// aapt resource value: 0x7f08000e
 			public const int never_display = 2131230734;
@@ -403,25 +406,28 @@ namespace Wavelength.App.Droid
 			public const int com_facebook_tooltip_bubble = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int Main = 2130903043;
+			public const int Login = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int messenger_button_send_blue_large = 2130903044;
+			public const int Main = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int messenger_button_send_blue_round = 2130903045;
+			public const int messenger_button_send_blue_large = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int messenger_button_send_blue_small = 2130903046;
+			public const int messenger_button_send_blue_round = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int messenger_button_send_white_large = 2130903047;
+			public const int messenger_button_send_blue_small = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int messenger_button_send_white_round = 2130903048;
+			public const int messenger_button_send_white_large = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int messenger_button_send_white_small = 2130903049;
+			public const int messenger_button_send_white_round = 2130903049;
+			
+			// aapt resource value: 0x7f03000a
+			public const int messenger_button_send_white_small = 2130903050;
 			
 			static Layout()
 			{

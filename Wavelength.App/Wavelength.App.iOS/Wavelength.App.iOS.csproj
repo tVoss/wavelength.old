@@ -4,11 +4,11 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>e6cdaa76-e663-47fb-923f-b69a3a3e515d</ProjectGuid>
+    <ProjectGuid>5b2026c8-f44c-4251-886c-7c8cce5fed17</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Wavelength.App.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>WavelengthAppiOS</AssemblyName>
+    <AssemblyName>Wavelength.App.iOS</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
