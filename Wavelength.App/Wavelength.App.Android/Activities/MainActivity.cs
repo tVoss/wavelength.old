@@ -1,12 +1,12 @@
-﻿
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-namespace Wavelength.App.Droid
+
+namespace Wavelength.App.Droid.Activities
 {
-    [Activity (Label = "Wavelength.App.Android", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity (Label = "WEW", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity, View.IOnClickListener
 	{
 

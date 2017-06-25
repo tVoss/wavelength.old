@@ -5,9 +5,9 @@ using Android.OS;
 using Xamarin.Facebook;
 using Xamarin.Facebook.Login;
 
-namespace Wavelength.App.Droid
+namespace Wavelength.App.Droid.Activities
 {
-    [Activity(Label = "Wavelength.App.Android")]
+    [Activity(Label = "Login")]
     public class LoginActivity : Activity, IFacebookCallback
     {
 

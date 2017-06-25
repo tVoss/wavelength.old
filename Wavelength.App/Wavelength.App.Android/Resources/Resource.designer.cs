@@ -429,6 +429,9 @@ namespace Wavelength.App.Droid
 			// aapt resource value: 0x7f03000a
 			public const int messenger_button_send_white_small = 2130903050;
 			
+			// aapt resource value: 0x7f03000b
+			public const int Splash = 2130903051;
+			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
